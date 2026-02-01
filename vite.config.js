@@ -32,6 +32,7 @@ export default defineConfig({
     target: 'es2015',
     rollupOptions: {
       output: {
+        format: 'iife',
         manualChunks: undefined,
         entryFileNames: 'assets/[name].js',
         chunkFileNames: 'assets/[name].js',
