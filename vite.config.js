@@ -8,8 +8,9 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name].mjs',
-        chunkFileNames: 'assets/[name].mjs',
+        format: 'umd',
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
         assetFileNames: 'assets/[name].[ext]'
       }
     }
