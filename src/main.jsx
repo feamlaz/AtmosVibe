@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App-with-weather.jsx';
+import App from './App-full.jsx';
 
+import 'leaflet/dist/leaflet.css';
 import './styles/variables.css';
 import './styles/main.css';
 import './styles/city-search.css';
