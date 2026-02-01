@@ -6,7 +6,11 @@ import { resolve } from 'path';
 export default defineConfig({
   base: '/AtmosVibe/',
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: []
+      }
+    }),
     svgr()
   ],
   resolve: {
@@ -18,7 +22,7 @@ export default defineConfig({
     port: 3000,
     host: 'localhost',
     open: true,
-    hmr: false, // Отключаем HMR полностью если проблема не решается
+    hmr: false,
     cors: true
   },
   build: {
@@ -28,19 +32,13 @@ export default defineConfig({
     target: 'es2015',
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          vendor: ['axios', 'date-fns'],
-          charts: ['recharts'],
-          maps: ['leaflet', 'react-leaflet'],
-          animation: ['framer-motion']
-        },
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        manualChunks: undefined,
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
       }
     },
-    assetsInlineLimit: 4096,
-    cssCodeSplit: true
+    assetsInlineLimit: 0,
+    cssCodeSplit: false
   }
 });
