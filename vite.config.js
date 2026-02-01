@@ -32,8 +32,13 @@ export default defineConfig({
           charts: ['recharts'],
           maps: ['leaflet', 'react-leaflet'],
           animation: ['framer-motion']
-        }
+        },
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
-    }
+    },
+    assetsInlineLimit: 4096,
+    cssCodeSplit: true
   }
 });
