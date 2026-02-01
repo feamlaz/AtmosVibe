@@ -1,0 +1,251 @@
+/* Поиск городов */
+.city-search {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.search-container {
+  position: relative;
+  overflow: visible;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.search-input-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.search-icon {
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.clear-button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.clear-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dropdown */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 99999;
+  min-height: 100px;
+}
+
+/* Превью прогноза */
+.forecast-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.forecast-day {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.forecast-day:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.forecast-day .day {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 60px;
+}
+
+.forecast-day .temp {
+  font-weight: 600;
+  color: #3b82f6;
+  font-size: 16px;
+}
+
+.forecast-day .desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.search-section {
+  padding: 0.5rem 0;
+}
+
+.search-section:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-section-title {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.search-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.search-item.favorite {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.search-item.favorite:hover {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.search-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-item-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-item-country {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.125rem;
+}
+
+.favorite-button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.favorite-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.favorite-button.active {
+  color: #fbbf24;
+}
+
+.search-loading {
+  padding: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+/* Скроллбар */
+.search-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-dropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .city-search {
+    max-width: 100%;
+  }
+  
+  .search-input-wrapper {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .search-input {
+    font-size: 0.8125rem;
+  }
+  
+  .search-dropdown {
+    max-height: 300px;
+  }
+  
+  .search-item {
+    padding: 0.625rem 0.875rem;
+  }
+}
