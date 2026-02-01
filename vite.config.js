@@ -4,7 +4,7 @@ import svgr from 'vite-plugin-svgr';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: './',
+  base: '/AtmosVibe/',
   plugins: [
     react(),
     svgr()
